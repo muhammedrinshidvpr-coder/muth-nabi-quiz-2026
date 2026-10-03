@@ -35,3 +35,9 @@ The Apps Script validates submissions again on the server and writes the timesta
 The workflow in `.github/workflows/pages.yml` runs syntax checks and registration tests on pull requests. A successful push to `main` deploys the `site/` directory to GitHub Pages.
 
 After creating the repository, ensure **Settings → Pages → Build and deployment → Source** is set to **GitHub Actions**. The site URL will be shown in the workflow deployment summary and under Pages settings.
+
+## Vercel deployment
+
+- **Production URL:** https://muth-nabi-quiz-2026.vercel.app
+- **Vercel project root directory:** `site`
+- The Vercel project is connected to this GitHub repository and automatically deploys `main`; pull requests receive preview deployments.
