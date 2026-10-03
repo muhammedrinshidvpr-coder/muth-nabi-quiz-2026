@@ -1,0 +1,10 @@
+{
+  "name": "muth-nabi-quiz-2026",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check site/app.js && node --check site/validation.js && node --check < apps-script/Code.gs"
+  }
+}
