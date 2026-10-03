@@ -9,6 +9,7 @@ const DEPARTMENT_OPTIONS = [
   "Electronics & Communication Engineering",
   "Industrial Instrumentation & Control Engineering",
   "Mechanical Engineering",
+  "PG",
   "Other / not listed",
 ];
 const GENDER_OPTIONS = ["Male", "Female"];

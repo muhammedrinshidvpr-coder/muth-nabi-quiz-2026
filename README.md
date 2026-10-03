@@ -2,7 +2,7 @@
 
 A fast, mobile-first registration page for the online Muth Nabi Mega Quiz at TKM College of Engineering.
 
-- **When:** 5 October 2026 at 7:00 PM IST
+- **When:** 5 October 2026 at 8:30 PM IST
 - **Who can register:** All TKM students
 - **Site:** static files in `site/`, published with GitHub Pages
 - **Registration storage:** private Google Sheet, written by `apps-script/Code.gs`
@@ -30,7 +30,7 @@ To preview, serve the `site/` directory with any static web server. The form wil
 6. Copy the deployed web-app URL (the one ending in `/exec`) into `SUBMISSION_ENDPOINT` in `site/config.js`. The endpoint URL is public; the spreadsheet stays restricted and its ID/contents are not placed in the website. If you later change the Apps Script code, create a new deployment version and update the URL if Google issues a new one.
 7. Run `npm test` and `npm run check`, then commit and push the change. GitHub Actions will publish it to Pages after the checks pass.
 
-The form requires the student to confirm they joined the WhatsApp group; this is a self-confirmation, not independent membership verification. The Apps Script validates fields again on the server and writes the timestamp and join acknowledgement itself. Department is a dropdown with TKMCE engineering branches and an `Other / not listed` choice; Gender options are Male and Female. Do not paste spreadsheet data, credentials, or private access tokens into this repository.
+The form requires the student to confirm they joined the WhatsApp group; this is a self-confirmation, not independent membership verification. The Apps Script validates fields again on the server and writes the timestamp and join acknowledgement itself. Department is a dropdown with TKMCE engineering branches, `PG`, and an `Other / not listed` choice; Gender options are Male and Female. Do not paste spreadsheet data, credentials, or private access tokens into this repository.
 
 ## GitHub Pages and CI/CD
 

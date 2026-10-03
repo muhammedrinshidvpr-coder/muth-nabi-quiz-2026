@@ -1,7 +1,7 @@
 import { SUBMISSION_ENDPOINT } from "./config.js";
 import { validateRegistration } from "./validation.js";
 
-const QUIZ_START = Date.parse("2026-10-05T19:00:00+05:30");
+const QUIZ_START = Date.parse("2026-10-05T20:30:00+05:30");
 const form = document.querySelector("#registration-form");
 const message = document.querySelector("#form-message");
 const submitButton = document.querySelector("#submit-button");

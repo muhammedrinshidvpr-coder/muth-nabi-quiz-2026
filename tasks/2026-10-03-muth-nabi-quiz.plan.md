@@ -7,11 +7,11 @@ Build a polished, mobile-first registration site for Muth Nabi Mega Quiz 2026 at
 ## Requirements
 
 - Event page title: **Muth Nabi Mega Quiz 2026**; organizer/campus: **TKM College of Engineering**.
-- Online quiz: **5 October 2026 at 7:00 PM IST**.
+- Online quiz: **5 October 2026 at 8:30 PM IST**.
 - Eligibility: all TKM students.
 - Use a complete event landing page inspired by the reference page’s forest-green/gold palette, hero, event information, and registration card; make it responsive, accessible, visually polished, and quick to load.
 - Collect required fields: Name, Mobile Number, Email, Department, Class, Gender, and a required confirmation that the student has joined the WhatsApp group.
-- Department is a dropdown of TKMCE departments plus `Other / not listed`; Class remains free text; Gender options are Male and Female only.
+- Department is a dropdown of TKMCE departments, `PG`, and `Other / not listed`; Class remains free text; Gender options are Male and Female only.
 - Preserve the WhatsApp group link in the registration success state; do not redirect automatically.
 - Save submissions to a new organizer-owned Google Sheet; do not expose the sheet to registrants.
 - Create public repository `muth-nabi-quiz-2026` under `muhammedrinshidvpr-coder`.
@@ -50,7 +50,7 @@ One registration contains:
 | name | string | Required, trimmed, non-empty |
 | number | string | Required; accept a reasonable international phone format |
 | email | string | Required; valid email format |
-| department | enum | Required TKMCE department option or `Other / not listed` |
+| department | enum | Required TKMCE department option, `PG`, or `Other / not listed` |
 | className | string | Required, trimmed, non-empty (examples such as M5A) |
 | gender | enum | Required: `Male` or `Female` |
 | joinedWhatsApp | boolean | Required; true only when the student checks the join confirmation |

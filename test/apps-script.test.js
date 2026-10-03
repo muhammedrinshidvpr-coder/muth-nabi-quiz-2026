@@ -96,6 +96,14 @@ test("Apps Script requires WhatsApp acknowledgement and the allowed department l
   assert.match(invalidDepartmentResponse, /"ok":false/);
 });
 
+test("Apps Script accepts PG as a department", () => {
+  const { context, rows } = createAppsScriptContext();
+  const response = context.doPost({ parameter: { ...validParameters, department: "PG" } }).getContent();
+
+  assert.equal(rows[1][4], "PG");
+  assert.match(response, /"ok":true/);
+});
+
 test("Apps Script adds the WhatsApp column without deleting existing registrations", () => {
   const oldHeaders = ["Submitted At", "Name", "Number", "Email", "Department", "Class", "Gender"];
   const existingRegistration = ["previous timestamp", "Existing Student", "+91 90000 00000", "existing@example.com", "Mechanical Engineering", "M3A", "Male"];

@@ -40,3 +40,10 @@ test("requires a WhatsApp group join confirmation", () => {
   assert.equal(result.ok, false);
   assert.match(result.message, /join the whatsapp group/i);
 });
+
+test("accepts PG as a department dropdown option", () => {
+  const result = validateRegistration({ ...validRegistration, department: "PG" });
+
+  assert.equal(result.ok, true);
+  assert.equal(result.value.department, "PG");
+});
