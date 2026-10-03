@@ -1,5 +1,17 @@
-const HEADERS = ["Submitted At", "Name", "Number", "Email", "Department", "Class", "Gender"];
-const GENDER_OPTIONS = ["Male", "Female", "Prefer not to say"];
+const HEADERS = ["Submitted At", "Name", "Number", "Email", "Department", "Class", "Gender", "WhatsApp Joined"];
+const LEGACY_HEADERS = HEADERS.slice(0, -1);
+const DEPARTMENT_OPTIONS = [
+  "Architecture",
+  "Chemical Engineering",
+  "Civil Engineering",
+  "Computer Science & Engineering",
+  "Electrical & Electronics Engineering",
+  "Electronics & Communication Engineering",
+  "Industrial Instrumentation & Control Engineering",
+  "Mechanical Engineering",
+  "Other / not listed",
+];
+const GENDER_OPTIONS = ["Male", "Female"];
 
 function doPost(event) {
   const parameters = (event && event.parameter) || {};
@@ -21,6 +33,7 @@ function doPost(event) {
         registration.department,
         registration.className,
         registration.gender,
+        "Yes",
       ]);
     } finally {
       lock.releaseLock();
@@ -41,6 +54,7 @@ function validateRegistration_(parameters) {
     department: String(parameters.department || "").trim(),
     className: String(parameters.className || "").trim(),
     gender: String(parameters.gender || "").trim(),
+    joinedWhatsApp: String(parameters.joinedWhatsApp || "").trim(),
   };
 
   if (Object.values(registration).some((value) => !value)) throw new Error("Required registration details are missing.");
@@ -51,7 +65,9 @@ function validateRegistration_(parameters) {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(registration.email) || registration.email.length > 254) {
     throw new Error("The email address is invalid.");
   }
+  if (!DEPARTMENT_OPTIONS.includes(registration.department)) throw new Error("The department selection is invalid.");
   if (!GENDER_OPTIONS.includes(registration.gender)) throw new Error("The gender selection is invalid.");
+  if (registration.joinedWhatsApp !== "yes") throw new Error("Join and confirm the WhatsApp group before registering.");
   return registration;
 }
 
@@ -63,8 +79,18 @@ function getRegistrationSheet_() {
   const sheet = spreadsheet.getSheetByName("Registrations") || spreadsheet.insertSheet("Registrations");
   if (sheet.getLastRow() === 0) {
     sheet.appendRow(HEADERS);
-    sheet.setFrozenRows(1);
+  } else {
+    const existingHeaders = sheet.getRange(1, 1, 1, HEADERS.length).getValues()[0].map((value) => String(value || "").trim());
+    const isBlank = existingHeaders.every((value) => !value);
+    const isLegacy = LEGACY_HEADERS.every((header, index) => existingHeaders[index] === header);
+    const isCurrent = HEADERS.every((header, index) => existingHeaders[index] === header);
+    if (isBlank || isLegacy) {
+      sheet.getRange(1, 1, 1, HEADERS.length).setValues([HEADERS]);
+    } else if (!isCurrent) {
+      throw new Error("The registration sheet headers do not match. Run setupRegistrationSheet to update them.");
+    }
   }
+  sheet.setFrozenRows(1);
   return sheet;
 }
 

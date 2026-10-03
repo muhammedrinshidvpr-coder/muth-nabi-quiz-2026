@@ -14,10 +14,13 @@
   </head>
   <body>
     <header class="site-header">
-      <a class="wordmark" href="https://profsummit.in" target="_blank" rel="noopener noreferrer" aria-label="Visit ProfSummit website">
-        <span class="wordmark-mark" aria-hidden="true">✳</span>
-        <span><strong>TKM</strong><small>College of Engineering</small></span>
-      </a>
+      <div class="brand-lockup">
+        <a class="wordmark" href="https://profsummit.in" target="_blank" rel="noopener noreferrer" aria-label="Visit ProfSummit website">
+          <img src="./assets/profsummit-logo.png" alt="ProfSummit — Professional Students Conference" width="1920" height="390" />
+        </a>
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="campus-wordmark"><strong>TKM</strong><small>College of Engineering</small></span>
+      </div>
       <a class="header-link" href="#register">Register <span aria-hidden="true">↗</span></a>
     </header>
 
@@ -99,7 +102,18 @@
                 </div>
                 <div class="field">
                   <label for="department">Department <span aria-hidden="true">*</span></label>
-                  <input id="department" name="department" type="text" autocomplete="organization-title" placeholder="Your department" maxlength="120" required />
+                  <select id="department" name="department" required>
+                    <option value="" selected disabled>Select your department</option>
+                    <option value="Architecture">Architecture</option>
+                    <option value="Chemical Engineering">Chemical Engineering</option>
+                    <option value="Civil Engineering">Civil Engineering</option>
+                    <option value="Computer Science & Engineering">Computer Science &amp; Engineering</option>
+                    <option value="Electrical & Electronics Engineering">Electrical &amp; Electronics Engineering</option>
+                    <option value="Electronics & Communication Engineering">Electronics &amp; Communication Engineering</option>
+                    <option value="Industrial Instrumentation & Control Engineering">Industrial Instrumentation &amp; Control Engineering</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Other / not listed">Other / not listed</option>
+                  </select>
                 </div>
                 <div class="field">
                   <label for="class-name">Class <span aria-hidden="true">*</span></label>
@@ -111,9 +125,15 @@
                     <option value="" selected disabled>Select an option</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
-                    <option value="Prefer not to say">Prefer not to say</option>
                   </select>
                 </div>
+              </div>
+              <div class="join-confirmation">
+                <div class="join-confirm-row">
+                  <input id="joined-whatsapp" name="joinedWhatsApp" type="checkbox" value="yes" required />
+                  <label for="joined-whatsapp">I have joined the quiz WhatsApp group <span aria-hidden="true">*</span></label>
+                </div>
+                <a class="join-group-link" href="https://chat.whatsapp.com/DtoDqCDCRbNLS4hkiQ84vr" target="_blank" rel="noopener noreferrer">Open WhatsApp group to join ↗</a>
               </div>
               <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
               <button class="button button-green submit-button" id="submit-button" type="submit">Complete registration <span aria-hidden="true">↗</span></button>

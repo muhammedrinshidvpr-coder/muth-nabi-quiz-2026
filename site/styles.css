@@ -29,11 +29,13 @@ a { color: inherit; }
 a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid #d28d2d; outline-offset: 3px; }
 
 .site-header { height: 76px; padding: 0 clamp(22px, 6vw, 92px); display: flex; align-items: center; justify-content: space-between; background: var(--forest-dark); color: #fff; }
-.wordmark { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; }
-.wordmark-mark { color: var(--gold); font-size: 30px; line-height: 1; }
-.wordmark strong, .wordmark small { display: block; }
-.wordmark strong { font: 800 15px/1.2 "Manrope", sans-serif; letter-spacing: .13em; }
-.wordmark small { margin-top: 3px; color: #b7c9bd; font-size: 10px; letter-spacing: .11em; text-transform: uppercase; }
+.brand-lockup { min-width: 0; display: flex; align-items: center; gap: 13px; }
+.wordmark { display: block; flex: none; width: 185px; overflow: hidden; padding: 5px 8px; border-radius: 6px; background: #242321; line-height: 0; text-decoration: none; }
+.wordmark img { display: block; width: 100%; height: auto; }
+.brand-divider { width: 1px; height: 30px; flex: none; background: #ffffff40; }
+.campus-wordmark strong, .campus-wordmark small { display: block; }
+.campus-wordmark strong { font: 800 13px/1.2 "Manrope", sans-serif; letter-spacing: .13em; }
+.campus-wordmark small { margin-top: 4px; color: #b7c9bd; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }
 .header-link { padding: 10px 16px; border: 1px solid #ffffff42; border-radius: 999px; color: #fff; font-size: 13px; font-weight: 700; text-decoration: none; transition: background .2s ease, color .2s ease; }
 .header-link:hover { background: var(--gold); color: var(--forest-dark); }
 
@@ -114,6 +116,13 @@ h1 em { display: inline-block; margin-left: 4px; color: #b5d4b7; font-size: .53e
 .field input::placeholder { color: #98a49b; }
 .field input:focus, .field select:focus { border-color: #377356; box-shadow: 0 0 0 3px #3773561c; outline: 0; }
 .field select:invalid { color: #89968c; }
+.join-confirmation { margin-top: 20px; padding: 13px 14px; border: 1px solid #d8e4d5; border-radius: 10px; background: #f5f8f1; }
+.join-confirm-row { display: flex; align-items: flex-start; gap: 10px; }
+.join-confirm-row input { width: 17px; height: 17px; flex: none; margin: 1px 0 0; accent-color: var(--forest); }
+.join-confirm-row label { color: #263d31; font-size: 11px; font-weight: 800; line-height: 1.5; }
+.join-confirm-row label span { color: #a44e34; }
+.join-group-link { display: inline-block; margin: 7px 0 0 27px; color: #1b6847; font-size: 10px; font-weight: 800; text-underline-offset: 3px; }
+.join-group-link:hover { color: #9a6b1b; }
 .form-message { min-height: 0; margin: 0; color: #a13e35; font-size: 12px; line-height: 1.5; }
 .form-message:not(:empty) { margin-top: 14px; }
 .submit-button { width: 100%; margin-top: 17px; background: var(--forest); color: white; box-shadow: 0 6px 0 #0b2a2350; font-size: 13px; }
@@ -154,9 +163,10 @@ h1 em { display: inline-block; margin-left: 4px; color: #b5d4b7; font-size: .53e
 @media (max-width: 650px) {
   html { scroll-padding-top: 20px; }
   .site-header { height: 66px; padding: 0 19px; }
-  .wordmark-mark { font-size: 26px; }
-  .wordmark strong { font-size: 13px; }
-  .wordmark small { font-size: 9px; }
+  .brand-lockup { gap: 9px; }
+  .wordmark { width: clamp(126px, 34vw, 165px); padding: 4px 6px; }
+  .campus-wordmark strong { font-size: 11px; }
+  .campus-wordmark small { font-size: 8px; }
   .hero { min-height: auto; padding: 49px 20px 30px; }
   .hero-inner { grid-template-columns: 1fr; gap: 51px; }
   .hero-copy { max-width: 540px; }
@@ -188,6 +198,9 @@ h1 em { display: inline-block; margin-left: 4px; color: #b5d4b7; font-size: .53e
 }
 
 @media (max-width: 390px) {
+  .brand-lockup { gap: 7px; }
+  .brand-divider, .campus-wordmark { display: none; }
+  .wordmark { width: 145px; }
   .field-grid { grid-template-columns: 1fr; }
   .field-wide { grid-column: auto; }
   .event-pills span { font-size: 9px; }

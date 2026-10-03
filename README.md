@@ -6,6 +6,8 @@ A fast, mobile-first registration page for the online Muth Nabi Mega Quiz at TKM
 - **Who can register:** All TKM students
 - **Site:** static files in `site/`, published with GitHub Pages
 - **Registration storage:** private Google Sheet, written by `apps-script/Code.gs`
+- **WhatsApp:** a join confirmation is required; successful registration then shows the group link
+- **Brand asset:** the linked ProfSummit logo in `site/assets/` is extracted from the supplied identity PDF
 
 ## Preview and checks
 
@@ -23,12 +25,12 @@ To preview, serve the `site/` directory with any static web server. The form wil
 1. Create a Google spreadsheet named **Muth Nabi Quiz 2026 Registrations**. Keep its sharing set to **Restricted** and only grant access to the event organizers. Registrants do not need access to the Sheet.
 2. In the Sheet, choose **Extensions → Apps Script**.
 3. Replace the editor contents with `apps-script/Code.gs` from this repository, then save.
-4. Select and run `setupRegistrationSheet` once from the Apps Script editor. Review and approve the requested spreadsheet access. This creates a `Registrations` tab with the headers `Submitted At`, `Name`, `Number`, `Email`, `Department`, `Class`, and `Gender`, and stores the spreadsheet ID in the Apps Script project's private script properties.
+4. Select and run `setupRegistrationSheet` from the Apps Script editor. Review and approve the requested spreadsheet access. This creates or updates the `Registrations` tab with the headers `Submitted At`, `Name`, `Number`, `Email`, `Department`, `Class`, `Gender`, and `WhatsApp Joined`, and stores the spreadsheet ID in the Apps Script project's private script properties. Existing registration rows are retained when the WhatsApp column is added.
 5. In Apps Script, choose **Deploy → New deployment**, select **Web app**, set **Execute as** to your account, and set **Who has access** to **Anyone** so the public registration page can submit. Deploy and complete Google's authorization prompt.
 6. Copy the deployed web-app URL (the one ending in `/exec`) into `SUBMISSION_ENDPOINT` in `site/config.js`. The endpoint URL is public; the spreadsheet stays restricted and its ID/contents are not placed in the website. If you later change the Apps Script code, create a new deployment version and update the URL if Google issues a new one.
 7. Run `npm test` and `npm run check`, then commit and push the change. GitHub Actions will publish it to Pages after the checks pass.
 
-The Apps Script validates submissions again on the server and writes the timestamp itself. Do not paste spreadsheet data, credentials, or private access tokens into this repository.
+The form requires the student to confirm they joined the WhatsApp group; this is a self-confirmation, not independent membership verification. The Apps Script validates fields again on the server and writes the timestamp and join acknowledgement itself. Department is a dropdown with TKMCE engineering branches and an `Other / not listed` choice; Gender options are Male and Female. Do not paste spreadsheet data, credentials, or private access tokens into this repository.
 
 ## GitHub Pages and CI/CD
 
