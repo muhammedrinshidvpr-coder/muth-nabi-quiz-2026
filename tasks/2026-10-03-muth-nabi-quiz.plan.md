@@ -12,7 +12,7 @@ Build a polished, mobile-first registration site for Muth Nabi Mega Quiz 2026 at
 - Use a complete event landing page inspired by the reference page’s forest-green/gold palette, hero, event information, and registration card; make it responsive, accessible, visually polished, and quick to load.
 - Collect required fields: Name, Mobile Number, Email, Department, Class, Gender.
 - Department and Class are free-text fields; Gender options are Male, Female, and Prefer not to say.
-- After registration, show a confirmation state only (no WhatsApp redirect).
+- After registration, show a confirmation state with a WhatsApp group join link; do not redirect automatically.
 - Save submissions to a new organizer-owned Google Sheet; do not expose the sheet to registrants.
 - Create public repository `muth-nabi-quiz-2026` under `muhammedrinshidvpr-coder`.
 - Publish with GitHub Pages. CI validates pull requests and deploys successful changes merged to `main`.
@@ -89,7 +89,7 @@ Dependencies: task 1 precedes task 3; task 2 can proceed alongside task 1; repos
 
 ## Acceptance Criteria
 
-- A student can complete the six required fields on desktop or mobile and receive an explicit success confirmation after a successful Sheet write.
+- A student can complete the six required fields on desktop or mobile, receive an explicit success confirmation after a successful Sheet write, and access the compact WhatsApp join button.
 - Invalid inputs are blocked with accessible feedback; failed saves can be retried without re-entering data.
 - The site clearly displays the confirmed event schedule and eligibility without invented prizes/deadlines.
 - The public GitHub repository contains no Sheet rows, credentials, or private identifiers.
