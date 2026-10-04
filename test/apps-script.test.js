@@ -91,7 +91,7 @@ test("Apps Script requires WhatsApp acknowledgement and the allowed department l
   assert.equal(rows.length, 0);
   assert.match(noJoinResponse, /"ok":false/);
 
-  const invalidDepartmentResponse = context.doPost({ parameter: { ...validParameters, department: "Unknown" } }).getContent();
+  const invalidDepartmentResponse = context.doPost({ parameter: { ...validParameters, department: "Industrial Instrumentation & Control Engineering" } }).getContent();
   assert.equal(rows.length, 0);
   assert.match(invalidDepartmentResponse, /"ok":false/);
 });

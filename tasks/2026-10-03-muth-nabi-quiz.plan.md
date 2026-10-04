@@ -8,7 +8,7 @@ Build a polished, mobile-first registration site for Muth Nabi Mega Quiz 2026 at
 
 - Event page title: **Muth Nabi Mega Quiz 2026**; organizer/campus: **TKM College of Engineering**.
 - Online quiz: **5 October 2026 at 8:30 PM IST**.
-- Eligibility: all TKM students.
+- Eligibility: students of TKM College of Engineering only.
 - Use a complete event landing page inspired by the reference page’s forest-green/gold palette, hero, event information, and registration card; make it responsive, accessible, visually polished, and quick to load.
 - Collect required fields: Name, Mobile Number, Email, Department, Class, Gender, and a required confirmation that the student has joined the WhatsApp group.
 - Department is a dropdown of TKMCE departments, `PG`, and `Other / not listed`; Class remains free text; Gender options are Male and Female only.
@@ -96,7 +96,7 @@ Dependencies: task 1 precedes task 3; task 2 can proceed alongside task 1; repos
 
 - A student must confirm WhatsApp group membership before submitting; the acknowledgement is saved alongside the six student fields.
 - Department uses a dropdown, Gender only offers Male/Female, and Class remains free text.
-- A student can complete the form on desktop or mobile, receive an explicit success confirmation after a successful Sheet write, and access the compact WhatsApp join button.
+- A student can complete the form on desktop or mobile, receive an animated success confirmation after a successful Sheet write, and access the compact WhatsApp join button.
 - Invalid inputs are blocked with accessible feedback; failed saves can be retried without re-entering data.
 - The site clearly displays the confirmed event schedule and eligibility without invented prizes/deadlines.
 - The public GitHub repository contains no Sheet rows, credentials, or private identifiers.

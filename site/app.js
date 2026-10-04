@@ -9,6 +9,14 @@ const iframe = document.querySelector("#submission-frame");
 const requestIdInput = document.querySelector("#request-id");
 const successPanel = document.querySelector("#success-panel");
 const countdownNote = document.querySelector("#countdown-note");
+let submissionTimeout;
+const SUBMISSION_TIMEOUT_MS = 30000;
+
+function restoreSubmitButton() {
+  window.clearTimeout(submissionTimeout);
+  submitButton.disabled = false;
+  submitButton.innerHTML = 'Complete registration <span aria-hidden="true">↗</span>';
+}
 
 function tickCountdown() {
   const remaining = Math.max(0, Math.ceil((QUIZ_START - Date.now()) / 1000));
@@ -50,15 +58,21 @@ form.addEventListener("submit", (event) => {
   submitButton.textContent = "Sending registration…";
   form.dataset.requestId = requestIdInput.value;
   form.submit();
+  submissionTimeout = window.setTimeout(() => {
+    if (!submitButton.disabled) return;
+    restoreSubmitButton();
+    message.textContent = "We didn't receive a confirmation. Your registration may still have been saved; please check with the organizers before submitting again.";
+  }, SUBMISSION_TIMEOUT_MS);
 });
 
 window.addEventListener("message", (event) => {
-  if (event.source !== iframe.contentWindow) return;
+  const isAppsScriptOrigin = event.origin === "https://script.google.com"
+    || event.origin.endsWith(".googleusercontent.com");
+  if (event.source !== iframe.contentWindow && !isAppsScriptOrigin) return;
   const result = event.data;
   if (!result || result.type !== "muth-quiz-registration" || result.requestId !== form.dataset.requestId) return;
 
-  submitButton.disabled = false;
-  submitButton.innerHTML = 'Complete registration <span aria-hidden="true">↗</span>';
+  restoreSubmitButton();
   if (result.ok) {
     form.hidden = true;
     successPanel.hidden = false;

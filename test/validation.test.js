@@ -32,6 +32,7 @@ test("rejects invalid contact details and values outside the dropdown options", 
   assert.equal(validateRegistration({ ...validRegistration, email: "not-an-email" }).ok, false);
   assert.equal(validateRegistration({ ...validRegistration, gender: "Other" }).ok, false);
   assert.equal(validateRegistration({ ...validRegistration, department: "Unlisted department" }).ok, false);
+  assert.equal(validateRegistration({ ...validRegistration, department: "Industrial Instrumentation & Control Engineering" }).ok, false);
 });
 
 test("requires a WhatsApp group join confirmation", () => {

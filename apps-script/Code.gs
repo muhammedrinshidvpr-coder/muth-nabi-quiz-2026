@@ -7,7 +7,6 @@ const DEPARTMENT_OPTIONS = [
   "Computer Science & Engineering",
   "Electrical & Electronics Engineering",
   "Electronics & Communication Engineering",
-  "Industrial Instrumentation & Control Engineering",
   "Mechanical Engineering",
   "PG",
   "Other / not listed",
@@ -104,7 +103,7 @@ function response_(requestId, ok, message) {
   }).replace(/</g, "\\u003c");
 
   return HtmlService.createHtmlOutput(
-    "<!doctype html><html><head><meta charset=\"utf-8\"></head><body><script>window.parent.postMessage(" + payload + ", '*');</script></body></html>"
+    "<!doctype html><html><head><meta charset=\"utf-8\"></head><body><script>window.top.postMessage(" + payload + ", '*');</script></body></html>"
   ).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
 }
 

@@ -5,7 +5,6 @@ export const DEPARTMENT_OPTIONS = [
   "Computer Science & Engineering",
   "Electrical & Electronics Engineering",
   "Electronics & Communication Engineering",
-  "Industrial Instrumentation & Control Engineering",
   "Mechanical Engineering",
   "PG",
   "Other / not listed",
