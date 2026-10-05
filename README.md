@@ -2,7 +2,7 @@
 
 A fast, mobile-first registration page for the online Muth Nabi Mega Quiz at TKM College of Engineering.
 
-- **When:** 5 October 2026 at 8:30 PM IST
+- **When:** 5 October 2026 at 9:00 PM IST
 - **Who can register:** TKM College of Engineering students
 - **Site:** static files in `site/`, published with GitHub Pages
 - **Registration storage:** private Google Sheet, written by `apps-script/Code.gs`

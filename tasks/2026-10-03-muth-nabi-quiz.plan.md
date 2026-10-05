@@ -7,7 +7,7 @@ Build a polished, mobile-first registration site for Muth Nabi Mega Quiz 2026 at
 ## Requirements
 
 - Event page title: **Muth Nabi Mega Quiz 2026**; organizer/campus: **TKM College of Engineering**.
-- Online quiz: **5 October 2026 at 8:30 PM IST**.
+- Online quiz: **5 October 2026 at 9:00 PM IST**.
 - Eligibility: students of TKM College of Engineering only.
 - Use a complete event landing page inspired by the reference page’s forest-green/gold palette, hero, event information, and registration card; make it responsive, accessible, visually polished, and quick to load.
 - Collect required fields: Name, Mobile Number, Email, Department, Class, Gender, and a required confirmation that the student has joined the WhatsApp group.
